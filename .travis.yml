@@ -1,0 +1,12 @@
+language: swift
+osx_image: xcode9.2
+install:
+- gem install xcpretty --no-ri --no-rdoc
+- gem install xcpretty-travis-formatter --no-ri --no-rdoc
+script:
+- xcodebuild clean test -project NetworkingKit.xcodeproj -scheme NetworkingKit -destination "platform=iOS Simulator,name=iPhone X" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty -f `xcpretty-travis-formatter`
+after_success:
+- curl -s https://codecov.io/bash | bash -
+notifications:
+  slack:
+    secure: BrOmzTWovZGDPARKAFuRJg0su4S580+cenSzjdkksl8ELDqO8YRWizcgYcsAaqBmncp4unn/6NUHmk7YdZWiKv/JAxZ4sGBS0UvkTXCnoEAMd1q42xwUZtJ0Z0Oeln7e5nIJC5iAepzTHbrd/EDJ6Mac44PvRvEALd1CFDfxJiAEcbJqu0tNylA5frXXX0yjGUBKpepG32Wahom02wcISU0vh2T2tTQZGoh0o+wdSBzrcaJf61M3CBdgOh+ot0nEgMeSdSFJO7VrU3/uQGXyae60oXQTQQ/adlHdKsHOWYIyGrVt06PtwmFY/HakgAltMxuY9Ajp+eYFRBEHa6IDI4EIFBApIk+HyAsMKrxhWl4lxhvERYgzJs0m549AJOi8hxbyZB1vFZ/GaAf8f2klmSeltzGdJpDRwGXIQgOUDFtqFEk9lkXI2QQC+2VtXj8behLIixHRJ6HiHf0hX59lplnB9yFjIRYZsQD/GopbLGF5eJ6LpvuNzDxtn3+/aofDnudpa321gJOC00hXYDp9l8CpAnod+vlUruFuXKWNOeSpkBs2XzkBAF2wmpNYpg87cDlmArTPbs1wIDOEH/kilNxMarNFTi3kXIMMKmY7tfYHkG8EH68brAUwIjXzakPxBsmdiwI7mES2OioXLeZyUs6Mat6EyY0qEiQEg3l50so=
