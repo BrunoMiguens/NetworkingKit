@@ -10,21 +10,11 @@ import Foundation
 
 extension NetworkingTarget {
     
-    private var urlString: String {
-        return "\(baseUrl)\(endpoint)"
-    }
-    
     func urlRequest(for headers: NetworkingHeaderDictionary? = nil) -> NetworkingResult<URLRequest> {
         
-        guard !urlString.isEmpty else {
-            return NetworkingResult.Failure(.invalidUrl)
-        }
+        let result = construct()
         
-        guard let result = construct() else {
-            return NetworkingResult.Failure(.invalidToken)
-        }
-        
-        guard let url = URL(string: result.path) else {
+        guard let url = URL(string: result.path), !urlString.isEmpty else {
             return NetworkingResult.Failure(.invalidUrl)
         }
         
@@ -44,33 +34,52 @@ extension NetworkingTarget {
         
     }
     
-    fileprivate func construct() -> NKRouterTupple? {
+}
+
+extension NetworkingTarget {
+    
+    fileprivate var urlString: String {
+        return "\(baseUrl)\(endpoint)"
+    }
+    
+    fileprivate func construct() -> NKRouterTupple {
         
         var bodyData: NKPostTuple = (nil, nil)
         var path: NKGetTuple = (nil, urlString)
         
-        bodyData = constructPost(with: parameters, encode: encodeParameters)
-        path = constructGet(for: path.url, with: parameters, encode: encodeParameters)
-        
-        let finalParameters = method == .post ? bodyData.parameters : path.parameters
-        return (path.url, method, finalParameters, bodyData.data)
+        switch method {
+            
+        case .get, .delete:
+            path = constructGet(for: path.url, with: parameters, encode: encodeParameters)
+            return (path.url, method, path.parameters, nil)
+            
+        case .post, .put:
+            bodyData = constructPost(with: parameters, encode: encodeParameters)
+            return (path.url, method, bodyData.parameters, bodyData.data)
+            
+        }
         
     }
     
-    private func constructGet(for path: String, with parameters: NKStringDictionary, encode: Bool = false) -> NKGetTuple {
+    fileprivate func constructGet(for path: String, with parameters: NKStringDictionary, encode: Bool = false) -> NKGetTuple {
+        guard parameters.count > 0 else {
+            return (parameters, path)
+        }
         
-        guard path.hasSuffix("?") || path.hasSuffix("&") else {
-            return (nil, "")
+        guard path.contains("?") else {
+            let newPath = "\(path)?"
+            return constructGet(for: newPath, with: parameters)
         }
         
         let query = encode ? parameters.formDataParameters(encode: true) : parameters.httpParameters
         
-        let url = parameters.isEmpty ? path : "\(path)&\(query)"
+        let endpointSeparator = path.hasSuffix("?")
+        let separator = endpointSeparator ? "" : "&"
         
-        return (parameters, url)
+        return (parameters, "\(path)\(separator)\(query)")
     }
     
-    private func constructPost(with parameters: NKStringDictionary, encode: Bool = true) -> NKPostTuple {
+    fileprivate func constructPost(with parameters: NKStringDictionary, encode: Bool = true) -> NKPostTuple {
         
         let queryString = parameters.formDataParameters(encode: encode)
         

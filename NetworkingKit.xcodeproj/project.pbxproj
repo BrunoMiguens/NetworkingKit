@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5BC85857205ADEA100DEFF73 /* NetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC8584D205ADEA100DEFF73 /* NetworkingKit.framework */; };
-		5BC8585C205ADEA100DEFF73 /* NetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8585B205ADEA100DEFF73 /* NetworkingKitTests.swift */; };
 		5BC8586A205ADEE100DEFF73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BC85868205ADEE100DEFF73 /* Info.plist */; };
 		5BC8588C205ADF1400DEFF73 /* NetworkingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8586C205ADF1300DEFF73 /* NetworkingResult.swift */; };
 		5BC8588E205ADF1400DEFF73 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8586E205ADF1300DEFF73 /* NetworkingError.swift */; };
@@ -22,12 +21,21 @@
 		5BC858A4205ADF1400DEFF73 /* NetworkingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8588B205ADF1400DEFF73 /* NetworkingTarget.swift */; };
 		5BC858A7205ADFD100DEFF73 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858A6205ADFD100DEFF73 /* Typealias.swift */; };
 		5BC858A9205AE0DA00DEFF73 /* URLSession+NetworkingKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858A8205AE0DA00DEFF73 /* URLSession+NetworkingKit.swift */; };
-		5BC858AB205AE12C00DEFF73 /* ProcessInfo+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858AA205AE12C00DEFF73 /* ProcessInfo+Extension.swift */; };
 		5BC858AE205AE4D800DEFF73 /* NetworkingTarget+URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858AD205AE4D800DEFF73 /* NetworkingTarget+URLRequest.swift */; };
 		5BC858B2205AEB1200DEFF73 /* Dictionary+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858AF205AEB1200DEFF73 /* Dictionary+Encoding.swift */; };
 		5BC858B3205AEB1200DEFF73 /* Array+Encoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858B0205AEB1200DEFF73 /* Array+Encoding.swift */; };
 		5BC858B6205AEB6C00DEFF73 /* String+Enconding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858B5205AEB6C00DEFF73 /* String+Enconding.swift */; };
 		5BC858B9205AECBA00DEFF73 /* Networking+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858B8205AECBA00DEFF73 /* Networking+Method.swift */; };
+		5BC858C1205BC95F00DEFF73 /* ArrayEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858BE205BC95F00DEFF73 /* ArrayEncodingTests.swift */; };
+		5BC858C2205BC95F00DEFF73 /* DictionaryEncodingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858BF205BC95F00DEFF73 /* DictionaryEncodingTests.swift */; };
+		5BC858C4205BCA6400DEFF73 /* StringEncondingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858C3205BCA6400DEFF73 /* StringEncondingTests.swift */; };
+		5BC858C8205BD84E00DEFF73 /* URLSessionNetworkingKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858C7205BD84E00DEFF73 /* URLSessionNetworkingKitTests.swift */; };
+		5BC858CB205BD8FD00DEFF73 /* MockNetworkingTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858CA205BD8FD00DEFF73 /* MockNetworkingTarget.swift */; };
+		5BC858CE205BE5C400DEFF73 /* NetworkingMethodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858CD205BE5C400DEFF73 /* NetworkingMethodTests.swift */; };
+		5BC858D1205BFC3000DEFF73 /* URLRequestNetworkingHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858D0205BFC3000DEFF73 /* URLRequestNetworkingHeaderTests.swift */; };
+		5BC858D4205BFF6C00DEFF73 /* NetworkingErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858D3205BFF6C00DEFF73 /* NetworkingErrorTests.swift */; };
+		5BC858D8205C04B300DEFF73 /* NetworkingTargetURLRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858D7205C04B300DEFF73 /* NetworkingTargetURLRequestTests.swift */; };
+		5BC858DA205C137F00DEFF73 /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC858D9205C137F00DEFF73 /* NetworkingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +51,6 @@
 /* Begin PBXFileReference section */
 		5BC8584D205ADEA100DEFF73 /* NetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC85856205ADEA100DEFF73 /* NetworkingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BC8585B205ADEA100DEFF73 /* NetworkingKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingKitTests.swift; sourceTree = "<group>"; };
 		5BC8585D205ADEA100DEFF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC85868205ADEE100DEFF73 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC8586C205ADF1300DEFF73 /* NetworkingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingResult.swift; sourceTree = "<group>"; };
@@ -58,12 +65,21 @@
 		5BC8588B205ADF1400DEFF73 /* NetworkingTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingTarget.swift; sourceTree = "<group>"; };
 		5BC858A6205ADFD100DEFF73 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		5BC858A8205AE0DA00DEFF73 /* URLSession+NetworkingKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkingKit.swift"; sourceTree = "<group>"; };
-		5BC858AA205AE12C00DEFF73 /* ProcessInfo+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Extension.swift"; sourceTree = "<group>"; };
 		5BC858AD205AE4D800DEFF73 /* NetworkingTarget+URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkingTarget+URLRequest.swift"; sourceTree = "<group>"; };
 		5BC858AF205AEB1200DEFF73 /* Dictionary+Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Encoding.swift"; sourceTree = "<group>"; };
 		5BC858B0205AEB1200DEFF73 /* Array+Encoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Encoding.swift"; sourceTree = "<group>"; };
 		5BC858B5205AEB6C00DEFF73 /* String+Enconding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Enconding.swift"; sourceTree = "<group>"; };
 		5BC858B8205AECBA00DEFF73 /* Networking+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Networking+Method.swift"; sourceTree = "<group>"; };
+		5BC858BE205BC95F00DEFF73 /* ArrayEncodingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayEncodingTests.swift; sourceTree = "<group>"; };
+		5BC858BF205BC95F00DEFF73 /* DictionaryEncodingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryEncodingTests.swift; sourceTree = "<group>"; };
+		5BC858C3205BCA6400DEFF73 /* StringEncondingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEncondingTests.swift; sourceTree = "<group>"; };
+		5BC858C7205BD84E00DEFF73 /* URLSessionNetworkingKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionNetworkingKitTests.swift; sourceTree = "<group>"; };
+		5BC858CA205BD8FD00DEFF73 /* MockNetworkingTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkingTarget.swift; sourceTree = "<group>"; };
+		5BC858CD205BE5C400DEFF73 /* NetworkingMethodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMethodTests.swift; sourceTree = "<group>"; };
+		5BC858D0205BFC3000DEFF73 /* URLRequestNetworkingHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestNetworkingHeaderTests.swift; sourceTree = "<group>"; };
+		5BC858D3205BFF6C00DEFF73 /* NetworkingErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingErrorTests.swift; sourceTree = "<group>"; };
+		5BC858D7205C04B300DEFF73 /* NetworkingTargetURLRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTargetURLRequestTests.swift; sourceTree = "<group>"; };
+		5BC858D9205C137F00DEFF73 /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +131,8 @@
 		5BC8585A205ADEA100DEFF73 /* NetworkingKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				5BC8585B205ADEA100DEFF73 /* NetworkingKitTests.swift */,
+				5BC858BA205BC95F00DEFF73 /* Source */,
+				5BC858C9205BD8EE00DEFF73 /* Mock */,
 				5BC8585D205ADEA100DEFF73 /* Info.plist */,
 			);
 			path = NetworkingKitTests;
@@ -194,7 +211,6 @@
 			children = (
 				5BC858A6205ADFD100DEFF73 /* Typealias.swift */,
 				5BC858A8205AE0DA00DEFF73 /* URLSession+NetworkingKit.swift */,
-				5BC858AA205AE12C00DEFF73 /* ProcessInfo+Extension.swift */,
 				5BC858B0205AEB1200DEFF73 /* Array+Encoding.swift */,
 				5BC858AF205AEB1200DEFF73 /* Dictionary+Encoding.swift */,
 				5BC858B5205AEB6C00DEFF73 /* String+Enconding.swift */,
@@ -216,6 +232,86 @@
 				5BC858B8205AECBA00DEFF73 /* Networking+Method.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		5BC858BA205BC95F00DEFF73 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858D5205C029800DEFF73 /* Components */,
+				5BC858BB205BC95F00DEFF73 /* Extensions */,
+				5BC858D9205C137F00DEFF73 /* NetworkingTests.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		5BC858BB205BC95F00DEFF73 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858BC205BC95F00DEFF73 /* Generic */,
+				5BC858CC205BE5A700DEFF73 /* Networking */,
+				5BC858CF205BFBFA00DEFF73 /* NetworkingHeader */,
+				5BC858D6205C041500DEFF73 /* NetworkingTarget */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5BC858BC205BC95F00DEFF73 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858BE205BC95F00DEFF73 /* ArrayEncodingTests.swift */,
+				5BC858C3205BCA6400DEFF73 /* StringEncondingTests.swift */,
+				5BC858BF205BC95F00DEFF73 /* DictionaryEncodingTests.swift */,
+				5BC858C7205BD84E00DEFF73 /* URLSessionNetworkingKitTests.swift */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		5BC858C9205BD8EE00DEFF73 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858CA205BD8FD00DEFF73 /* MockNetworkingTarget.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		5BC858CC205BE5A700DEFF73 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858CD205BE5C400DEFF73 /* NetworkingMethodTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5BC858CF205BFBFA00DEFF73 /* NetworkingHeader */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858D0205BFC3000DEFF73 /* URLRequestNetworkingHeaderTests.swift */,
+			);
+			path = NetworkingHeader;
+			sourceTree = "<group>";
+		};
+		5BC858D2205BFF4300DEFF73 /* NetworkingError */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858D3205BFF6C00DEFF73 /* NetworkingErrorTests.swift */,
+			);
+			path = NetworkingError;
+			sourceTree = "<group>";
+		};
+		5BC858D5205C029800DEFF73 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858D2205BFF4300DEFF73 /* NetworkingError */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5BC858D6205C041500DEFF73 /* NetworkingTarget */ = {
+			isa = PBXGroup;
+			children = (
+				5BC858D7205C04B300DEFF73 /* NetworkingTargetURLRequestTests.swift */,
+			);
+			path = NetworkingTarget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,7 +440,6 @@
 				5BC858A2205ADF1400DEFF73 /* URLRequest+NetworkingHeader.swift in Sources */,
 				5BC8589D205ADF1400DEFF73 /* NetworkingError+CustomErrors.swift in Sources */,
 				5BC858B6205AEB6C00DEFF73 /* String+Enconding.swift in Sources */,
-				5BC858AB205AE12C00DEFF73 /* ProcessInfo+Extension.swift in Sources */,
 				5BC858B3205AEB1200DEFF73 /* Array+Encoding.swift in Sources */,
 				5BC858A7205ADFD100DEFF73 /* Typealias.swift in Sources */,
 			);
@@ -354,7 +449,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC8585C205ADEA100DEFF73 /* NetworkingKitTests.swift in Sources */,
+				5BC858CE205BE5C400DEFF73 /* NetworkingMethodTests.swift in Sources */,
+				5BC858C2205BC95F00DEFF73 /* DictionaryEncodingTests.swift in Sources */,
+				5BC858D4205BFF6C00DEFF73 /* NetworkingErrorTests.swift in Sources */,
+				5BC858DA205C137F00DEFF73 /* NetworkingTests.swift in Sources */,
+				5BC858D8205C04B300DEFF73 /* NetworkingTargetURLRequestTests.swift in Sources */,
+				5BC858C4205BCA6400DEFF73 /* StringEncondingTests.swift in Sources */,
+				5BC858CB205BD8FD00DEFF73 /* MockNetworkingTarget.swift in Sources */,
+				5BC858C1205BC95F00DEFF73 /* ArrayEncodingTests.swift in Sources */,
+				5BC858D1205BFC3000DEFF73 /* URLRequestNetworkingHeaderTests.swift in Sources */,
+				5BC858C8205BD84E00DEFF73 /* URLSessionNetworkingKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

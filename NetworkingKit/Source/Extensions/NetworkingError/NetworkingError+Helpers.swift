@@ -42,6 +42,7 @@ extension NetworkingError {
         case .apiMessage: return -7
         case .apiForm: return -8
         case .operationCanceled: return -9
+        case .invalidRequest: return -10
         case .custom (let code, _): return code
 
         }

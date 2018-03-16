@@ -12,14 +12,18 @@ extension String {
     
     var encode: String {
         var output: String = self
-        if let encoded = addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)?.replacingOccurrences(of: "+", with: "%2B") {
-            output = encoded
+        if let encoded = addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) {
+            output = encoded.replacingOccurrences(of: "+", with: "%2B")
         }
         return output
     }
     
     var decode: String {
-        return self.removingPercentEncoding ?? self
+        var output: String = self
+        if let decoded = removingPercentEncoding {
+            output = decoded
+        }
+        return output
     }
     
 }

@@ -8,26 +8,28 @@
 
 import Foundation
 
-extension Networking {
+/// This enum represents the HTTP request method.
+enum NetworkingMethod: String {
     
-    /// This enum represents the HTTP request method.
-    enum Method: String {
+    /// Will perform a GET call.
+    case get = "GET"
+    
+    /// Will perform a POST call.
+    case post = "POST"
+    
+    /// Will perform a PUT call.
+    case put = "PUT"
+    
+    /// Will perform a DELETE call.
+    case delete = "DELETE"
+    
+    var defaultHeaders: NetworkingHeaderDictionary {
         
-        /// Will perform a GET call.
-        case get = "GET"
-        
-        /// Will perform a POST call.
-        case post = "POST"
-        
-        var defaultHeaders: NetworkingHeaderDictionary {
+        switch self {
             
-            switch self {
-                
-            case .get: return NetworkingHeader.get
-            case .post: return NetworkingHeader.post
-                
-            }
+        case .post, .put: return NetworkingHeader.post
+        case .get, .delete: return NetworkingHeader.get
+            
         }
     }
-    
 }

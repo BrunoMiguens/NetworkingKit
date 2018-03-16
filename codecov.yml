@@ -9,6 +9,15 @@ coverage:
       default: on
     changes:
       default: on
+    notify:
+      slack:
+        default:
+          url: "https://hooks.slack.com/services/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"
+          threshold: 1%
+          only_pulls: false
+          branches: null
+          flags: null
+          paths: null
 comment:
   layout: "header, reach, diff, flags, files, footer"
   behavior: default

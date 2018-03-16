@@ -25,7 +25,7 @@ class Networking {
     /// - Parameters:
     ///   - router: Represents the route that you want to follow using 'NetworkingRouter' enum, if exists, some routers have the ability to transport parameters or other objects.
     ///   - completion: This is a typical completion handler based on 'NetworkingResult' enum.
-    class func perform(for router: NetworkingTarget, headers: NetworkingHeaderDictionary? = nil, completion: @escaping NetworkingHandler) {
+    class func perform(for router: NetworkingTarget, headers: NetworkingHeaderDictionary? = nil, runningTests: Bool = false, completion: @escaping NetworkingHandler) {
         let result = router.urlRequest(for: headers)
 
         guard let request = result.value, result.isSuccess else {
@@ -33,7 +33,7 @@ class Networking {
             return
         }
 
-        URLSession.shared.task(router: router, request: request) { (object, response, error) in
+        URLSession.shared.task(router: router, request: request, runningTests: runningTests) { (object, response, error) in
             self.deserialize(response: response, with: object, and: error, to: completion)
         }?.resume()
     }
@@ -53,12 +53,10 @@ extension Networking {
     ///   - completion: Handler to dispatch the logic result with a '.Success(T)' or an '.Failure(NetworkingError)'.
     fileprivate class func deserialize(response: URLResponse?, with object: Any?, and error: Error?, to completion: @escaping NetworkingHandler) {
 
-        if let array = object as? NKArray {
-            completion(.Success(array))
-        } else if let dictionary = object as? NKDictionary {
-            completion(.Success(dictionary))
+        if let obj = object, obj is NKArray || obj is NKDictionary {
+            completion(.Success(obj))
         } else {
-            completion(.Failure(NetworkingError.construct(with: error)))
+            completion(.Failure(NetworkingError.construct(with: error, and: response)))
         }
 
     }

@@ -40,6 +40,8 @@ public enum NetworkingError: Error {
 
     /// Use this error when the user cancels some action and you need to check that.
     case operationCanceled
+    
+    case invalidRequest(response: URLResponse?)
 
 }
 
@@ -67,7 +69,7 @@ extension NetworkingError {
     /// - Returns: Returns a `NetworkingError` object, in case of nonexistent error should return a `.unknown` value.
     static func construct(with error: Error?, and response: URLResponse?) -> NetworkingError {
         guard let fail = error else {
-            return response == nil ? .unknown : .unexpected(objects: [response!])
+            return response == nil ? .unknown : .invalidRequest(response: response)
         }
 
         guard let operation = response as? HTTPURLResponse else {

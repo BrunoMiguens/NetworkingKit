@@ -1,15 +1,15 @@
 //
-//  NetworkingKitTests.swift
+//  StringEncondingTests.swift
 //  NetworkingKitTests
 //
-//  Created by Bruno Miguêns on 15/03/2018.
+//  Created by Bruno Miguêns on 16/03/2018.
 //  Copyright © 2018 Bruno Filipe Miguêns. All rights reserved.
 //
 
 import XCTest
 @testable import NetworkingKit
 
-class NetworkingKitTests: XCTestCase {
+class StringEncondingTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -21,16 +21,12 @@ class NetworkingKitTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEncodeString() {
+        XCTAssertEqual("123abc_+[]".encode, "123abc_%2B%5B%5D")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDecodeString() {
+        XCTAssertEqual("123abc_%2B%5B%5D".decode, "123abc_+[]")
     }
     
 }

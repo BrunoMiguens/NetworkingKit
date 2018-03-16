@@ -14,7 +14,7 @@ extension NetworkingError {
 
     /// Use this error when the user doesn't exist and you need to check that.
     static var unknownUser: NetworkingError {
-        return NetworkingError.custom(code: -10, description: "No user found to complete the request successfully.")
+        return NetworkingError.custom(code: -11, description: "No user found to complete the request successfully.")
     }
 
 }

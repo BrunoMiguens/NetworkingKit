@@ -17,8 +17,8 @@ protocol NetworkingTarget {
     
     var endpoint: String { get }
     
-    /// Return a `Networking.Method` value indicating the method (get, post and so on) type for each parameter.
-    var method: Networking.Method { get }
+    /// Return a `NetworkingMethod` value indicating the method (get, post and so on) type for each parameter.
+    var method: NetworkingMethod { get }
     
     /// Return a `NKDictionary` value indicating the final constructed parameters to used on the http request.
     var parameters: NKStringDictionary { get }
@@ -27,6 +27,6 @@ protocol NetworkingTarget {
     var encodeParameters: Bool { get }
 
     /// Return a `NKDictionary` value indicating the sample dictionary to be used on unit tests, if nil then should make the http request.
-    var sampleData: NKDictionary? { get }
+    var sampleData: Any? { get }
 
 }

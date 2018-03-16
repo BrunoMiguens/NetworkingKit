@@ -8,9 +8,11 @@
 
 import Foundation
 
+typealias NKURLRequestHanlder = (Any?, URLResponse?, Error?) -> Void
+
 typealias NKGetTuple = (parameters: NKDictionary?, url: String)
 typealias NKPostTuple = (parameters: NKDictionary?, data: NetworkingResult<Data>?)
-typealias NKRouterTupple = (path: String, method: Networking.Method, parameters: NKDictionary?, postBody: NetworkingResult<Data>?)
+typealias NKRouterTupple = (path: String, method: NetworkingMethod, parameters: NKDictionary?, postBody: NetworkingResult<Data>?)
 
 public typealias NKArray = [Any]
 public typealias NKDictionary = [AnyHashable: Any]

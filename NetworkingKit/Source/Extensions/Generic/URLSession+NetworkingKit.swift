@@ -19,16 +19,19 @@ extension URLSession {
     ///   - request: The `URLRequest` object to make the http request, if doesn't exist any `sampleData`.
     ///   - completionHandler: The handler to notify when the request is finished.
     /// - Returns: Returns a `URLSessionDataTask`.
-    func task(router: NetworkingTarget, request: URLRequest, completionHandler: @escaping (Any?, URLResponse?, Error?) -> Void) -> URLSessionDataTask? {
+    func task(router: NetworkingTarget, request: URLRequest, runningTests: Bool = false, completionHandler: NKURLRequestHanlder?) -> URLSessionDataTask? {
         
-        if let sample = router.sampleData, ProcessInfo.runningUnitTests {
-            completionHandler(sample, nil, nil)
+        if let sample = router.sampleData, runningTests {
+            completionHandler?(sample, nil, nil)
             return nil
         }
         
         return dataTask(with: request) { data, response, error in
-            let object = try? JSONSerialization.jsonObject(with: data ?? Data(), options: [])
-            completionHandler(object, response, error)
+            var object: Any? = nil
+            if let dt = data, let obj = try? JSONSerialization.jsonObject(with: dt, options: []) {
+                object = obj
+            }
+            completionHandler?(object, response, error)
         }
     }
     
