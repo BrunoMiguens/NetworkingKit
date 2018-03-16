@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = 'NetworkingKit'
-  s.version          = '0.1.0'
-  s.summary          = '[WIP] This library is a simple networking layer with a easy integration with iOS App Extensions.'
+  s.version          = '0.1.1'
+  s.summary          = 'This library is a simple networking layer with a easy integration with iOS App Extensions.'
 
-  s.description      = '[WIP] This library was created with the purpose of creating a simple networking layer with a easy integration with iOS App Extensions. Although there\s a lot of networking managers, this class may be an opportunity to create new and custom libraries.'
+  s.description      = 'This library was created with the purpose of creating a simple networking layer with a easy integration with iOS App Extensions. Although there\s a lot of networking managers, this class may be an opportunity to create new and custom libraries.'
 
   s.homepage         = 'https://github.com/BrunoMiguens/NetworkingKit'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
