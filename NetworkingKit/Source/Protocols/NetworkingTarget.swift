@@ -11,7 +11,7 @@ import Foundation
 /**
  This protocol shall be used to make the `NetworkingRouter` conforms with the properties bellow in order to join all the networking logic such as parameters, methods and so on.
  */
-protocol NetworkingTarget {
+public protocol NetworkingTarget {
     
     var baseUrl: String { get }
     

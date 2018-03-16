@@ -26,7 +26,7 @@ extension URLRequest {
     /// This auxiliary method will provide you an easier way to set all the header created using the `NetworkingHeader`.
     ///
     /// - Parameter headers: This is an object of type ` [NetworkingHeader: String]` containing all the headers that you want to set.
-    mutating func set(headers: NetworkingHeaderDictionary = NetworkingHeader.get) {
+    public mutating func set(headers: NetworkingHeaderDictionary = NetworkingHeader.get) {
         headers.forEach { key, value in
             setValue(value, forHTTPHeaderField: key.rawValue)
         }

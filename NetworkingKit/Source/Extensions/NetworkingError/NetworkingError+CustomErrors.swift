@@ -13,7 +13,7 @@ extension NetworkingError {
     // MARK: Custom Errors
 
     /// Use this error when the user doesn't exist and you need to check that.
-    static var unknownUser: NetworkingError {
+    public static var unknownUser: NetworkingError {
         return NetworkingError.custom(code: -11, description: "No user found to complete the request successfully.")
     }
 

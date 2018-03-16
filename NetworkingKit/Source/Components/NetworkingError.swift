@@ -53,7 +53,7 @@ extension NetworkingError {
     ///
     /// - Parameter error: This is the object containing the error information.
     /// - Returns: Returns a `NetworkingError` object, in case of nonexistent error should return a `.unknown` value.
-    static func construct(with error: Error?) -> NetworkingError {
+    public static func construct(with error: Error?) -> NetworkingError {
         guard let oldError = error as NSError? else {
             return .invalidData
         }
@@ -67,7 +67,7 @@ extension NetworkingError {
     ///   - error: This is the object containing the error information.
     ///   - response: This is the URL response object containing the response information with a possible error.
     /// - Returns: Returns a `NetworkingError` object, in case of nonexistent error should return a `.unknown` value.
-    static func construct(with error: Error?, and response: URLResponse?) -> NetworkingError {
+    public static func construct(with error: Error?, and response: URLResponse?) -> NetworkingError {
         guard let fail = error else {
             return response == nil ? .unknown : .invalidRequest(response: response)
         }

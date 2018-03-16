@@ -13,7 +13,7 @@ import Foundation
  **Example:**
  Imagine when you have the same endpoint to create and edit some information, in that case, the `NetworkingRouter` will ask you which action do you want to perform to choose the best way to communicate with the API.
  */
-enum NetworkingAction {
+public enum NetworkingAction {
 
     /// This case is to be used when you want to fetch information.
     case fetch

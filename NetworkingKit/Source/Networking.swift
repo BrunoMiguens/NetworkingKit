@@ -16,7 +16,7 @@ import Foundation
  **Note:**
  You should not change much the following class, in case of you need to create a communication with the API about some specific thing then create an extension inside of the 'Requests' folder and use the `perform(for:completion:)` to make the call.
  */
-class Networking {
+public class Networking {
 
     // MARK: Methods
 
@@ -25,7 +25,7 @@ class Networking {
     /// - Parameters:
     ///   - router: Represents the route that you want to follow using 'NetworkingRouter' enum, if exists, some routers have the ability to transport parameters or other objects.
     ///   - completion: This is a typical completion handler based on 'NetworkingResult' enum.
-    class func perform(for router: NetworkingTarget, headers: NetworkingHeaderDictionary? = nil, runningTests: Bool = false, completion: @escaping NetworkingHandler) {
+    public class func perform(for router: NetworkingTarget, headers: NetworkingHeaderDictionary? = nil, runningTests: Bool = false, completion: @escaping NetworkingHandler) {
         let result = router.urlRequest(for: headers)
 
         guard let request = result.value, result.isSuccess else {

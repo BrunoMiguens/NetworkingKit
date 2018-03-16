@@ -13,12 +13,12 @@ extension NetworkingHeader {
     // MARK: Default Headers
 
     /// This stored property will gather all the default and needed headers for a GET request.
-    static var get: NetworkingHeaderDictionary {
+    public static var get: NetworkingHeaderDictionary {
         return [.contentType: HeaderValue.applicationJson.rawValue]
     }
 
     /// This stored property will gather all the default and needed headers for a POST request.
-    static var post: NetworkingHeaderDictionary {
+    public static var post: NetworkingHeaderDictionary {
         return [.contentType: HeaderValue.formUrlEncoded.rawValue]
     }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 /// This enum represents the HTTP request method.
-enum NetworkingMethod: String {
+public enum NetworkingMethod: String {
     
     /// Will perform a GET call.
     case get = "GET"
@@ -23,7 +23,7 @@ enum NetworkingMethod: String {
     /// Will perform a DELETE call.
     case delete = "DELETE"
     
-    var defaultHeaders: NetworkingHeaderDictionary {
+    public var defaultHeaders: NetworkingHeaderDictionary {
         
         switch self {
             

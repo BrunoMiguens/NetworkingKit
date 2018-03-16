@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    var encode: String {
+    public var encode: String {
         var output: String = self
         if let encoded = addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed) {
             output = encoded.replacingOccurrences(of: "+", with: "%2B")
@@ -18,7 +18,7 @@ extension String {
         return output
     }
     
-    var decode: String {
+    public var decode: String {
         var output: String = self
         if let decoded = removingPercentEncoding {
             output = decoded

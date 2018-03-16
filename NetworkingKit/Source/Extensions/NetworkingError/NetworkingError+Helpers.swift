@@ -29,7 +29,7 @@ extension NetworkingError {
     // MARK: Properties
 
     /// This property should be an auxiliary way to get the error code to a specific `NetworkingError`.
-    var code: Int {
+    public var code: Int {
 
         switch self {
 
@@ -50,7 +50,7 @@ extension NetworkingError {
     }
 
     /// This property should be an auxiliary way to get the error message to a specific `NetworkingError`, if applicable.
-    var message: String? {
+    public var message: String? {
 
         switch self {
 

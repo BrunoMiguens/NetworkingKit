@@ -10,7 +10,7 @@ import Foundation
 
 extension NetworkingTarget {
     
-    func urlRequest(for headers: NetworkingHeaderDictionary? = nil) -> NetworkingResult<URLRequest> {
+    public func urlRequest(for headers: NetworkingHeaderDictionary? = nil) -> NetworkingResult<URLRequest> {
         
         let result = construct()
         

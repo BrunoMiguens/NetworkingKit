@@ -18,7 +18,7 @@ public enum NetworkingHeader: String {
     case contentType = "Content-Type"
 
     /// This enumerator should be used every time you need to the value for a specific header.
-    enum HeaderValue: String {
+    public enum HeaderValue: String {
 
         /// This case should give this value 'text/html' to a header, such as the `.accept` and so on.
         case textHtml = "text/html"
