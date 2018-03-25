@@ -18,7 +18,7 @@ extension Networking {
     ///   - response: A `NKResult` object containing an `Any` object.
     ///   - parser: This parser will be executed while parsing the result type, using a `T` object.
     ///   - completion: This handler will be executed after the request and extract process giving a `NKResult<Array<T>>` object.
-    class func extractResults<T>(with response: NKResult<Any>, parser: NKParserHandler<T>, to completion: NKResultHandler<T>) {
+    public class func extractResults<T>(with response: NKResult<Any>, parser: NKParserHandler<T>, to completion: NKResultHandler<T>) {
 
         let key = parser([:]).key
 
@@ -45,7 +45,7 @@ extension Networking {
     ///   - resultsData: This parameter should have the dictionary raw data to be parsed.
     ///   - parser: This parser will be executed while parsing the result type, using a `T` object.
     ///   - completion: This handler will be executed after the request and extract process giving a `NKResult<Array<T>>` object.
-    class func parseResult<T>(_ resultsData: NKDictionary, with parser: NKParserHandler<T>, and completion: NKResultHandler<T>) {
+    public class func parseResult<T>(_ resultsData: NKDictionary, with parser: NKParserHandler<T>, and completion: NKResultHandler<T>) {
 
         let key = parser([:]).key
         var dict = resultsData
@@ -69,7 +69,7 @@ extension Networking {
     ///   - resultsArray: This parameter should have the array raw data to be parsed.
     ///   - parser: This parser will be executed while parsing the result type, using a `T` object.
     ///   - completion: This handler will be executed after the request and extract process giving a `NKResult<Array<T>>` object.
-    class func parseResults<T>(_ resultsArray: [NKDictionary], with parser: NKParserHandler<T>, and completion: NKResultHandler<T>) {
+    public class func parseResults<T>(_ resultsArray: [NKDictionary], with parser: NKParserHandler<T>, and completion: NKResultHandler<T>) {
 
         var results: Array<T> = []
         resultsArray.forEach { dict in
