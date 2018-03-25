@@ -129,7 +129,7 @@ Now the only thing you need to do is perform your requests using the `Networking
 
   Networking.perform(for: login) { result in
 
-    // Check the `NetworkingResult` to understand the type of property that `result` represents.
+    // Check the `NKResult` to understand the type of property that `result` represents.
 
     if let value = result.value, result.isSuccess {
       // Your code

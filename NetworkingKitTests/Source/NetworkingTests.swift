@@ -90,7 +90,7 @@ class NetworkingTests: XCTestCase {
             
             XCTAssertNil(result.value)
             XCTAssertFalse(result.isSuccess)
-            XCTAssertEqual(result.error.code, NetworkingError.invalidRequest(response: nil).code)
+            XCTAssertEqual(result.error.code, NKError.invalidRequest(response: nil).code)
             
             async.fulfill()
         }

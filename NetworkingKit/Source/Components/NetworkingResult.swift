@@ -1,5 +1,5 @@
 //
-//  NetworkingResult.swift
+//  NKResult.swift
 //  NetworkingKit
 //
 //  Created by Bruno Miguêns on 13/03/2017.
@@ -8,20 +8,20 @@
 
 import Foundation
 
-public typealias NetworkingHandler = (_ result: NetworkingResult<Any>) -> Void
-public typealias NetworkingArrayHandler = (_ result: NetworkingResult<NKArray>) -> Void
-public typealias NetworkingJsonHandler = (_ result: NetworkingResult<NKDictionary>) -> Void
+public typealias NKHandler = (_ result: NKResult<Any>) -> Void
+public typealias NKArrayHandler = (_ result: NKResult<NKArray>) -> Void
+public typealias NKJsonHandler = (_ result: NKResult<NKDictionary>) -> Void
 
 // swiftlint:disable shorthand_operator
 
 /// This enum represents the kind of types that a result handler could return.
-public enum NetworkingResult<T> {
+public enum NKResult<T> {
 
     /// This indicates that everything worked as expected and will return a Generic (T), will return what you prefer.
     case Success(T)
 
-    /// If something goes wrong this '.Failure' will be used, will return 'NetworkingError' enum to know what happens.
-    case Failure(NetworkingError)
+    /// If something goes wrong this '.Failure' will be used, will return 'NKError' enum to know what happens.
+    case Failure(NKError)
 
     /// This property should return the value inside of the success case, if applicable.
     var value: T? {
@@ -33,8 +33,8 @@ public enum NetworkingResult<T> {
         }
     }
 
-    /// This property should return the value of type `NetworkingError` inside of the error case, in case of nonexistent value should return a `.unknown` value.
-    var error: NetworkingError {
+    /// This property should return the value of type `NKError` inside of the error case, in case of nonexistent value should return a `.unknown` value.
+    var error: NKError {
         switch self {
 
         case .Failure(let error): return error

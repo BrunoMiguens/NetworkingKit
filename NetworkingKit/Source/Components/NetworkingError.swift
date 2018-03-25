@@ -1,5 +1,5 @@
 //
-//  NetworkingError.swift
+//  NKError.swift
 //  NetworkingKit
 //
 //  Created by Bruno Miguêns on 13/03/2017.
@@ -9,7 +9,7 @@
 import Foundation
 
 /// This enum represents a variety of possible errors, related with the construction of the request or about the response.
-public enum NetworkingError: Error {
+public enum NKError: Error {
 
     /// Represents an unknown error, will return an array of nullable objects. could happen if some cast won't work correctly.
     case unknown
@@ -40,20 +40,20 @@ public enum NetworkingError: Error {
 
     /// Use this error when the user cancels some action and you need to check that.
     case operationCanceled
-    
+
     case invalidRequest(response: URLResponse?)
 
 }
 
-extension NetworkingError {
+extension NKError {
 
     // MARK: Converters/Constructors
 
-    /// This method should convert a simple object of type `Error` into a `NetworkingError`.
+    /// This method should convert a simple object of type `Error` into a `NKError`.
     ///
     /// - Parameter error: This is the object containing the error information.
-    /// - Returns: Returns a `NetworkingError` object, in case of nonexistent error should return a `.unknown` value.
-    public static func construct(with error: Error?) -> NetworkingError {
+    /// - Returns: Returns a `NKError` object, in case of nonexistent error should return a `.unknown` value.
+    public static func construct(with error: Error?) -> NKError {
         guard let oldError = error as NSError? else {
             return .invalidData
         }
@@ -61,13 +61,13 @@ extension NetworkingError {
         return .custom(code: oldError.code, description: oldError.localizedDescription)
     }
 
-    /// This method should convert a simple object of type `Error` or a `URLResponse` object into a `NetworkingError`.
+    /// This method should convert a simple object of type `Error` or a `URLResponse` object into a `NKError`.
     ///
     /// - Parameters:
     ///   - error: This is the object containing the error information.
     ///   - response: This is the URL response object containing the response information with a possible error.
-    /// - Returns: Returns a `NetworkingError` object, in case of nonexistent error should return a `.unknown` value.
-    public static func construct(with error: Error?, and response: URLResponse?) -> NetworkingError {
+    /// - Returns: Returns a `NKError` object, in case of nonexistent error should return a `.unknown` value.
+    public static func construct(with error: Error?, and response: URLResponse?) -> NKError {
         guard let fail = error else {
             return response == nil ? .unknown : .invalidRequest(response: response)
         }

@@ -1,5 +1,5 @@
 //
-//  NetworkingError+Helpers.swift
+//  NKError+Helpers.swift
 //  NetworkingKit
 //
 //  Created by Bruno Miguêns on 02/10/2017.
@@ -8,27 +8,27 @@
 
 import Foundation
 
-extension NetworkingError: Equatable {
+extension NKError: Equatable {
 
     // MARK: Helpers (Equatable)
 
-    /// Using this method you'll be able to compare two `NetworkingError`, will check for the code and message, just using the operator `==`.
+    /// Using this method you'll be able to compare two `NKError`, will check for the code and message, just using the operator `==`.
     ///
     /// - Parameters:
     ///   - lhs: This parameter should be the one you want to compare.
     ///   - rhs: This parameter should be the one you want to make sure that is equal to the first one.
     /// - Returns: Returns a `Boolean` value indicating whether or not the two options are equal.
-    public static func == (lhs: NetworkingError, rhs: NetworkingError) -> Bool {
+    public static func == (lhs: NKError, rhs: NKError) -> Bool {
         return lhs.code == rhs.code && lhs.message == rhs.message
     }
 
 }
 
-extension NetworkingError {
+extension NKError {
 
     // MARK: Properties
 
-    /// This property should be an auxiliary way to get the error code to a specific `NetworkingError`.
+    /// This property should be an auxiliary way to get the error code to a specific `NKError`.
     public var code: Int {
 
         switch self {
@@ -49,7 +49,7 @@ extension NetworkingError {
 
     }
 
-    /// This property should be an auxiliary way to get the error message to a specific `NetworkingError`, if applicable.
+    /// This property should be an auxiliary way to get the error message to a specific `NKError`, if applicable.
     public var message: String? {
 
         switch self {

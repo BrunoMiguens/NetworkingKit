@@ -1,5 +1,5 @@
 //
-//  NetworkingErrorTests.swift
+//  NKErrorTests.swift
 //  NetworkingKitTests
 //
 //  Created by Bruno Miguêns on 16/03/2018.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import NetworkingKit
 
-class NetworkingErrorTests: XCTestCase {
+class NKErrorTests: XCTestCase {
     
     let url = URL(string: "http://apple.com/pt")!
     
@@ -29,25 +29,25 @@ class NetworkingErrorTests: XCTestCase {
         exError = NSError(domain: "Domain", code: exCode, userInfo: [NSLocalizedDescriptionKey: exMessage])
     }
     
-    func testNetworkingError_ShouldCreateResponseInvalid() {
+    func testNKError_ShouldCreateResponseInvalid() {
         
-        let result: NetworkingError = NetworkingError.responseInvalid(description: exMessage)
+        let result: NKError = NKError.responseInvalid(description: exMessage)
         
         XCTAssertEqual(result.message, exMessage, "Should create an '.responseInvalid' with this description '\(exMessage)'")
         
     }
     
-    func testNetworkingError_ShouldCreateApiMessage() {
+    func testNKError_ShouldCreateApiMessage() {
         
-        let result = NetworkingError.apiMessage(message: exMessage)
+        let result = NKError.apiMessage(message: exMessage)
         
         XCTAssertEqual(result.message, exMessage, "Should create an '.apiMessage' with this message '\(exMessage)'")
         
     }
     
-    func testNetworkingError_ShouldCreateApiForm() {
+    func testNKError_ShouldCreateApiForm() {
         
-        let result = NetworkingError.apiForm(form: exDictionary)
+        let result = NKError.apiForm(form: exDictionary)
         
         switch result {
         case .apiForm(let dictionary):
@@ -59,18 +59,18 @@ class NetworkingErrorTests: XCTestCase {
         
     }
     
-    func testNetworkingError_ShouldCreateCustomError() {
+    func testNKError_ShouldCreateCustomError() {
         
-        let result = NetworkingError.custom(code: exCode, description: exMessage)
+        let result = NKError.custom(code: exCode, description: exMessage)
         
         XCTAssertEqual(result.code, exCode, "Should create an '.custom' with this code '\(exCode)'")
         XCTAssertEqual(result.message, exMessage, "Should create an '.custom' with this message '\(exMessage)'")
         
     }
     
-    func testNetworkingError_ShouldNotConstructError() {
+    func testNKError_ShouldNotConstructError() {
         
-        let result = NetworkingError.construct(with: nil)
+        let result = NKError.construct(with: nil)
         
         switch result {
         case .invalidData: break
@@ -81,18 +81,18 @@ class NetworkingErrorTests: XCTestCase {
         
     }
     
-    func testNetworkingError_ShouldConstructError() {
+    func testNKError_ShouldConstructError() {
         
-        let result = NetworkingError.construct(with: exError)
+        let result = NKError.construct(with: exError)
         
         XCTAssertEqual(result.code, exCode, "Should create an '.custom' with this code '\(exCode)'")
         XCTAssertEqual(result.message, exMessage, "Should create an '.custom' with this message '\(exMessage)'")
         
     }
     
-    func testNetworkingError_ShouldNotConstructUrlResponseError() {
+    func testNKError_ShouldNotConstructUrlResponseError() {
         
-        var result = NetworkingError.construct(with: nil, and: nil)
+        var result = NKError.construct(with: nil, and: nil)
         
         switch result {
         case .unknown: break
@@ -101,7 +101,7 @@ class NetworkingErrorTests: XCTestCase {
             XCTFail("Should return an '.unknown' error.")
         }
         
-        result = NetworkingError.construct(with: exError, and: nil)
+        result = NKError.construct(with: exError, and: nil)
         
         switch result {
         case .unexpected(let objects):
@@ -113,7 +113,7 @@ class NetworkingErrorTests: XCTestCase {
             XCTFail("Should return an '.unexpected' error.")
         }
         
-        result = NetworkingError.construct(with: nil, and: exResponse)
+        result = NKError.construct(with: nil, and: exResponse)
         
         switch result {
         case .invalidRequest(let response):
@@ -125,86 +125,86 @@ class NetworkingErrorTests: XCTestCase {
         
     }
     
-    func testNetworkingError_ShouldConstructUrlResponseError() {
+    func testNKError_ShouldConstructUrlResponseError() {
         
-        let result = NetworkingError.construct(with: exError, and: exResponse)
+        let result = NKError.construct(with: exError, and: exResponse)
         
         XCTAssertEqual(result.code, exCode, "Should create an '.custom' with this code '\(exCode)'")
         XCTAssertEqual(result.message, exError.localizedDescription, "Should create an '.custom' with this message '\(exError.localizedDescription)'")
         
     }
     
-    func testNetworkingError_ShouldConstructSomeError() {
+    func testNKError_ShouldConstructSomeError() {
         
-        let result = NetworkingError.construct(with: exError)
+        let result = NKError.construct(with: exError)
         
         XCTAssertEqual(result.code, exCode, "Should create an '.custom' with this code '\(exCode)'")
         XCTAssertEqual(result.message, exMessage, "Should create an '.custom' with this message '\(exMessage)'")
         
     }
     
-    func testNetworkingError_CheckCustomErrorUnknownUser() {
+    func testNKError_CheckCustomErrorUnknownUser() {
         
-        let unknownUser: NetworkingError = NetworkingError.unknownUser
+        let unknownUser: NKError = NKError.unknownUser
         
         XCTAssertEqual(unknownUser.code, -11)
         XCTAssertEqual(unknownUser.message, "No user found to complete the request successfully.")
     }
     
-    func testNetworkingErrorShouldReturnMessage() {
+    func testNKErrorShouldReturnMessage() {
         
-        XCTAssertEqual(NetworkingError.apiMessage(message: exMessage).message, exMessage)
+        XCTAssertEqual(NKError.apiMessage(message: exMessage).message, exMessage)
         
-        XCTAssertEqual(NetworkingError.responseInvalid(description: exMessage).message, exMessage)
+        XCTAssertEqual(NKError.responseInvalid(description: exMessage).message, exMessage)
         
-        XCTAssertEqual(NetworkingError.custom(code: 0, description: exMessage).message, exMessage)
+        XCTAssertEqual(NKError.custom(code: 0, description: exMessage).message, exMessage)
     }
     
-    func testNetworkingErrorShouldNotReturnMessage() {
+    func testNKErrorShouldNotReturnMessage() {
         
-        XCTAssertNil(NetworkingError.apiForm(form: [:]).message, "The error 'apiForm' should not return a valid message.")
+        XCTAssertNil(NKError.apiForm(form: [:]).message, "The error 'apiForm' should not return a valid message.")
         
-        XCTAssertNil(NetworkingError.unknown.message, "The error 'unknown' should not return a valid message.")
+        XCTAssertNil(NKError.unknown.message, "The error 'unknown' should not return a valid message.")
         
-        XCTAssertNil(NetworkingError.unexpected(objects: [""]).message, "The error 'unexpected' should not return a valid message.")
+        XCTAssertNil(NKError.unexpected(objects: [""]).message, "The error 'unexpected' should not return a valid message.")
         
-        XCTAssertNil(NetworkingError.invalidUrl.message, "The error 'invalidUrl' should not return a valid message.")
+        XCTAssertNil(NKError.invalidUrl.message, "The error 'invalidUrl' should not return a valid message.")
         
-        XCTAssertNil(NetworkingError.invalidData.message, "The error 'invalidData' should not return a valid message.")
+        XCTAssertNil(NKError.invalidData.message, "The error 'invalidData' should not return a valid message.")
         
-        XCTAssertNil(NetworkingError.invalidToken.message, "The error 'invalidToken' should not return a valid message.")
+        XCTAssertNil(NKError.invalidToken.message, "The error 'invalidToken' should not return a valid message.")
     }
     
-    func testNetworkingErrorShouldReturnCode() {
+    func testNKErrorShouldReturnCode() {
         
-        XCTAssertEqual(NetworkingError.unknown.code, -1)
+        XCTAssertEqual(NKError.unknown.code, -1)
         
-        XCTAssertEqual(NetworkingError.unexpected(objects: [""]).code, -2)
+        XCTAssertEqual(NKError.unexpected(objects: [""]).code, -2)
         
-        XCTAssertEqual(NetworkingError.invalidUrl.code, -3)
+        XCTAssertEqual(NKError.invalidUrl.code, -3)
         
-        XCTAssertEqual(NetworkingError.invalidData.code, -4)
+        XCTAssertEqual(NKError.invalidData.code, -4)
         
-        XCTAssertEqual(NetworkingError.invalidToken.code, -5)
+        XCTAssertEqual(NKError.invalidToken.code, -5)
         
-        XCTAssertEqual(NetworkingError.responseInvalid(description: "").code, -6)
+        XCTAssertEqual(NKError.responseInvalid(description: "").code, -6)
         
-        XCTAssertEqual(NetworkingError.apiMessage(message: "").code, -7)
+        XCTAssertEqual(NKError.apiMessage(message: "").code, -7)
         
-        XCTAssertEqual(NetworkingError.apiForm(form: [:]).code, -8)
+        XCTAssertEqual(NKError.apiForm(form: [:]).code, -8)
         
-        XCTAssertEqual(NetworkingError.operationCanceled.code, -9)
+        XCTAssertEqual(NKError.operationCanceled.code, -9)
         
-        XCTAssertEqual(NetworkingError.invalidRequest(response: nil).code, -10)
+        XCTAssertEqual(NKError.invalidRequest(response: nil).code, -10)
         
-        XCTAssertEqual(NetworkingError.custom(code: 0, description: "").code, 0)
+        XCTAssertEqual(NKError.custom(code: 0, description: "").code, 0)
     }
     
-    func testNetworkingErrorShouldCompareErrors() {
+    func testNKErrorShouldCompareErrors() {
         
-        XCTAssertTrue(NetworkingError.unknown == NetworkingError.unknown, "The comparison method should return 'true'.")
+        XCTAssertTrue(NKError.unknown == NKError.unknown, "The comparison method should return 'true'.")
         
-        XCTAssertFalse(NetworkingError.unknown == NetworkingError.invalidUrl, "The comparison method should return 'false'.")
+        XCTAssertFalse(NKError.unknown == NKError.invalidUrl, "The comparison method should return 'false'.")
     }
     
 }
