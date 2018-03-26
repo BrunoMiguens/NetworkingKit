@@ -27,7 +27,7 @@ class URLRequestNetworkingHeaderTests: XCTestCase {
         
         XCTAssertEqual(request.allHTTPHeaderFields?.count, 1)
         XCTAssertTrue(request.allHTTPHeaderFields?.keys.contains(NetworkingHeader.contentType.rawValue) ?? false)
-        XCTAssertTrue(request.allHTTPHeaderFields?.values.contains(NetworkingHeader.HeaderValue.applicationJson.rawValue) ?? false)
+        XCTAssertTrue(request.allHTTPHeaderFields?.values.contains(NetworkingHeader.Value.applicationJson.rawValue) ?? false)
     }
     
     func testShouldSetHeaders() {
@@ -40,7 +40,7 @@ class URLRequestNetworkingHeaderTests: XCTestCase {
         
         XCTAssertEqual(request.allHTTPHeaderFields?.count, 1)
         XCTAssertTrue(request.allHTTPHeaderFields?.keys.contains(NetworkingHeader.contentType.rawValue) ?? false)
-        XCTAssertTrue(request.allHTTPHeaderFields?.values.contains(NetworkingHeader.HeaderValue.formUrlEncoded.rawValue) ?? false)
+        XCTAssertTrue(request.allHTTPHeaderFields?.values.contains(NetworkingHeader.Value.formUrlEncoded.rawValue) ?? false)
     }
     
 }

@@ -145,7 +145,10 @@ Use the statement `Networking.perform(for: login, runningTests: true)`, when you
 You may want to add custom headers to your requests, to do that you can use the `NetworkingHeaderDictionary` (aka `[NetworkingHeader: String]`) as a parameter.
 
 ```swift
-  Networking.perform(for: login, headers: yourCustomHeaders) { result in
+
+  let custom: NetworkingHeaderDictionary = [.custom(key: "your-header-key"): "abc123"]
+
+  Networking.perform(for: login, headers: custom) { result in
       // Your code
   }
 ```

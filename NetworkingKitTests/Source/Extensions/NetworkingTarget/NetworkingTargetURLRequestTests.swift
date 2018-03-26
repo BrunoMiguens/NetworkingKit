@@ -89,13 +89,13 @@ class NetworkingTargetURLRequestTests: XCTestCase {
         
         XCTAssertEqual(request.value?.allHTTPHeaderFields?.count, 1)
         XCTAssertTrue(request.value?.allHTTPHeaderFields?.keys.contains(NetworkingHeader.contentType.rawValue) ?? false)
-        XCTAssertTrue(request.value?.allHTTPHeaderFields?.values.contains(NetworkingHeader.HeaderValue.applicationJson.rawValue) ?? false)
+        XCTAssertTrue(request.value?.allHTTPHeaderFields?.values.contains(NetworkingHeader.Value.applicationJson.rawValue) ?? false)
     }
     
     func testShouldReturnUrlWithCustomHeaders() {
         
         let mock = MockNetworkingTarget()
-        let request = mock.urlRequest(for: [.contentType: NetworkingHeader.HeaderValue.textHtml.rawValue])
+        let request = mock.urlRequest(for: [.contentType: NetworkingHeader.Value.textHtml.rawValue])
         
         XCTAssertNotNil(request.value)
         XCTAssertTrue(request.isSuccess)
@@ -105,7 +105,7 @@ class NetworkingTargetURLRequestTests: XCTestCase {
         
         XCTAssertEqual(request.value?.allHTTPHeaderFields?.count, 1)
         XCTAssertTrue(request.value?.allHTTPHeaderFields?.keys.contains(NetworkingHeader.contentType.rawValue) ?? false)
-        XCTAssertTrue(request.value?.allHTTPHeaderFields?.values.contains(NetworkingHeader.HeaderValue.textHtml.rawValue) ?? false)
+        XCTAssertTrue(request.value?.allHTTPHeaderFields?.values.contains(NetworkingHeader.Value.textHtml.rawValue) ?? false)
     }
     
     func testShouldReturnUrlForGET() {
