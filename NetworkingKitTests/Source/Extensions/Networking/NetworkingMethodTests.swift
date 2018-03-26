@@ -27,7 +27,7 @@ class NetworkingMethodTests: XCTestCase {
         
         XCTAssertEqual(defaultHeaders.count, 1)
         XCTAssertTrue(defaultHeaders.keys.contains(.contentType))
-        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.HeaderValue.applicationJson.rawValue))
+        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.Value.applicationJson.rawValue))
     }
     
     func testCheckDeleteDefaultHeaders() {
@@ -36,7 +36,7 @@ class NetworkingMethodTests: XCTestCase {
         
         XCTAssertEqual(defaultHeaders.count, 1)
         XCTAssertTrue(defaultHeaders.keys.contains(.contentType))
-        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.HeaderValue.applicationJson.rawValue))
+        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.Value.applicationJson.rawValue))
     }
     
     func testCheckPostDefaultHeaders() {
@@ -45,7 +45,7 @@ class NetworkingMethodTests: XCTestCase {
         
         XCTAssertEqual(defaultHeaders.count, 1)
         XCTAssertTrue(defaultHeaders.keys.contains(.contentType))
-        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.HeaderValue.formUrlEncoded.rawValue))
+        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.Value.formUrlEncoded.rawValue))
     }
     
     func testCheckPutDefaultHeaders() {
@@ -54,7 +54,7 @@ class NetworkingMethodTests: XCTestCase {
         
         XCTAssertEqual(defaultHeaders.count, 1)
         XCTAssertTrue(defaultHeaders.keys.contains(.contentType))
-        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.HeaderValue.formUrlEncoded.rawValue))
+        XCTAssertTrue(defaultHeaders.values.contains(NetworkingHeader.Value.formUrlEncoded.rawValue))
     }
     
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BBFAC012068F6DD00FD5907 /* NetworkingExtractorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFAC002068F6DD00FD5907 /* NetworkingExtractorsTests.swift */; };
+		5BBFAC042068F77600FD5907 /* MockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFAC032068F77600FD5907 /* MockObject.swift */; };
+		5BBFAC07206901A600FD5907 /* NetworkingHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBFAC06206901A600FD5907 /* NetworkingHeaderTests.swift */; };
 		5BC85857205ADEA100DEFF73 /* NetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BC8584D205ADEA100DEFF73 /* NetworkingKit.framework */; };
 		5BC8586A205ADEE100DEFF73 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BC85868205ADEE100DEFF73 /* Info.plist */; };
 		5BC8588C205ADF1400DEFF73 /* NetworkingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC8586C205ADF1300DEFF73 /* NetworkingResult.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5BBFAC002068F6DD00FD5907 /* NetworkingExtractorsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingExtractorsTests.swift; sourceTree = "<group>"; };
+		5BBFAC032068F77600FD5907 /* MockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObject.swift; sourceTree = "<group>"; };
+		5BBFAC06206901A600FD5907 /* NetworkingHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHeaderTests.swift; sourceTree = "<group>"; };
 		5BC8584D205ADEA100DEFF73 /* NetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC85856205ADEA100DEFF73 /* NetworkingKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkingKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC8585D205ADEA100DEFF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +111,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5BBFAC022068F74000FD5907 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		5BBFAC052069019000FD5907 /* NetworkingHeader */ = {
+			isa = PBXGroup;
+			children = (
+				5BBFAC06206901A600FD5907 /* NetworkingHeaderTests.swift */,
+			);
+			path = NetworkingHeader;
+			sourceTree = "<group>";
+		};
 		5BC85843205ADEA100DEFF73 = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +296,9 @@
 		5BC858C9205BD8EE00DEFF73 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				5BBFAC022068F74000FD5907 /* JSON */,
 				5BC858CA205BD8FD00DEFF73 /* MockNetworkingTarget.swift */,
+				5BBFAC032068F77600FD5907 /* MockObject.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -283,6 +306,7 @@
 		5BC858CC205BE5A700DEFF73 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5BBFAC002068F6DD00FD5907 /* NetworkingExtractorsTests.swift */,
 				5BC858CD205BE5C400DEFF73 /* NetworkingMethodTests.swift */,
 			);
 			path = Networking;
@@ -308,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				5BC858D2205BFF4300DEFF73 /* NetworkingError */,
+				5BBFAC052069019000FD5907 /* NetworkingHeader */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -459,7 +484,10 @@
 			files = (
 				5BC858CE205BE5C400DEFF73 /* NetworkingMethodTests.swift in Sources */,
 				5BC858C2205BC95F00DEFF73 /* DictionaryEncodingTests.swift in Sources */,
+				5BBFAC012068F6DD00FD5907 /* NetworkingExtractorsTests.swift in Sources */,
+				5BBFAC07206901A600FD5907 /* NetworkingHeaderTests.swift in Sources */,
 				5BC858D4205BFF6C00DEFF73 /* NetworkingErrorTests.swift in Sources */,
+				5BBFAC042068F77600FD5907 /* MockObject.swift in Sources */,
 				5BC858DA205C137F00DEFF73 /* NetworkingTests.swift in Sources */,
 				5BC858D8205C04B300DEFF73 /* NetworkingTargetURLRequestTests.swift in Sources */,
 				5BC858C4205BCA6400DEFF73 /* StringEncondingTests.swift in Sources */,
