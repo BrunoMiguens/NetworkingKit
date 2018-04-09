@@ -1,0 +1,18 @@
+[
+  {
+    "id": "e5851493-bbf1-4324-9515-53b3b4780151",
+    "email": "brunomiguens@icloud.com",
+    "password_hash": "$2a$10$hWXHJfNzlcwUzS3IEgX9UeAYldk.Hbjr6z1kJi.0Pvpz5VURBHw5i",
+    "provider_credentials": [
+      {
+        "id": "7d0371e8-4e8f-4b44-9f4f-00c5364b058f",
+        "email": "fastlane_ci",
+        "full_name": "Clone User credentials",
+        "provider_name": "GitHub",
+        "type": "github",
+        "remote_host": "github.com",
+        "encrypted_api_token": "wj8yiuY9NNhZhGrYD7EY3LaWIvoRqELBzEOJV/qT0BbGrAUFCPbSM7JtMm/r\n4XDbAHcLQxxkM5A3zO4Taayd8Q==\n"
+      }
+    ]
+  }
+]
